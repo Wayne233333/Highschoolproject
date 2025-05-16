@@ -1,0 +1,1 @@
+pyinstaller chat_client.py -D -w -i H:\chat\server\bin\client.ico
