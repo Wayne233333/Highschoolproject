@@ -10,7 +10,7 @@ from CameraCollection import *
 
 def game(Palm):
 
-    #初始化
+    #?????
 
     pygame.init()
     doub=1.4
@@ -19,20 +19,20 @@ def game(Palm):
     shigh=720*doub
 
     screen = pygame.display.set_mode((swid, shigh))
-    pygame.display.set_caption('弹球')
-    clock = pygame.time.Clock()  # 频率时钟
+    pygame.display.set_caption('????')
+    clock = pygame.time.Clock()  # ??????
 
-    speed = 5*doub  # 小球速度控制参数
+    speed = 5*doub  # С???????????
     b_speed=15
 
     fuhao=[-1,1]
     x, y = speed*fuhao[random.randint(0,1)], speed*fuhao[random.randint(0,1)]
 
-    ball = pygame.Rect((0, 0), (10, 10))  # 小球的位置区
+    ball = pygame.Rect((0, 0), (10, 10))  # С???λ????
     ball.center = swid//2,shigh//2
 
-    board1 = pygame.Rect((0, 0), (15, 150))  # 弹板的位置区
-    board2 = pygame.Rect((0, 0), (15, 150))  # 弹板的位置区
+    board1 = pygame.Rect((0, 0), (15, 150))  # ?????λ????
+    board2 = pygame.Rect((0, 0), (15, 150))  # ?????λ????
 
     board1.center = 30*doub,shigh//2
     board2.center = swid-30*doub, shigh//2
@@ -40,11 +40,11 @@ def game(Palm):
     #pygame.mouse.set_visible(False)
 
     gameDisplay = pygame.display.set_mode((swid,shigh))
-    pygame.display.set_caption('双人弹球')
+    pygame.display.set_caption('??????')
     
     Gicon = pygame.image.load("Gicon.png")
     pygame.display.set_icon(Gicon)
-    background = pygame.image.load('./image/0.png').convert()
+    background = pygame.image.load('./Double_Pinball/image/0.png').convert()
     background = pygame.transform.smoothscale(background, gameDisplay.get_size())
     gameDisplay.blit(background, (0, 0))
     score=0
@@ -53,7 +53,7 @@ def game(Palm):
     RightH=0
 
 
-    #游戏启动
+    #???????
 
     r = False
     while True:
@@ -77,11 +77,11 @@ def game(Palm):
                 speed=5
                 x, y = speed*fuhao[random.randint(0,1)], speed*fuhao[random.randint(0,1)]
                 
-                ball = pygame.Rect((0, 0), (10, 10))  # 小球的位置区
+                ball = pygame.Rect((0, 0), (10, 10))  # С???λ????
                 ball.center = swid//2,shigh//2
 
-                board1 = pygame.Rect((0, 0), (15, 150))  # 弹板的位置区
-                board2 = pygame.Rect((0, 0), (15, 150))  # 弹板的位置区
+                board1 = pygame.Rect((0, 0), (15, 150))  # ?????λ????
+                board2 = pygame.Rect((0, 0), (15, 150))  # ?????λ????
 
                 board1.center = 30*doub,shigh//2
                 board2.center = swid-30*doub, shigh//2
@@ -95,7 +95,7 @@ def game(Palm):
                             r = False
                     if(pygame.time.get_ticks()-begin_time>=1000):now_pic=2
                     if(pygame.time.get_ticks()-begin_time>=2000):now_pic=1
-                    background = pygame.image.load(f'./image/{now_pic}.png').convert()
+                    background = pygame.image.load(f'./Double_Pinball/image/{now_pic}.png').convert()
                     background = pygame.transform.smoothscale(background, gameDisplay.get_size())
                     gameDisplay.blit(background, (0, 0))
                     
@@ -114,10 +114,10 @@ def game(Palm):
                         board2.center = swid-30*doub,min(max(RightH,24*doub+75),shigh-24*doub-75)
                     
                     
-                    pygame.draw.circle(screen, (243, 160, 49), ball.center, 10)  # 屏幕上在小球位置区画球
+                    pygame.draw.circle(screen, (243, 160, 49), ball.center, 10)  # ???????С??λ????????
 
-                    pygame.draw.rect(screen, (70, 130, 253), board1)  # 屏幕上在弹板位置区画弹板
-                    pygame.draw.rect(screen, (211, 53, 78), board2)  # 屏幕上在弹板位置区画弹板
+                    pygame.draw.rect(screen, (70, 130, 253), board1)  # ??????????λ??????????
+                    pygame.draw.rect(screen, (211, 53, 78), board2)  # ??????????λ??????????
                     
 
                     if(Palm.qsize()>0):
@@ -129,15 +129,15 @@ def game(Palm):
                                 RightH=kkk[1]
                     
                     
-                    clock.tick(50)  # 每秒30次
+                    clock.tick(50)  # ???30??
                     pygame.display.update()
 
             
-            clock.tick(50)  # 每秒30次
+            clock.tick(50)  # ???30??
 
-            pygame.draw.circle(screen, (243, 160, 49), ball.center, 10)  # 屏幕上在小球位置区画球
-            pygame.draw.rect(screen, (70, 130, 253), board1)  # 屏幕上在弹板位置区画弹板
-            pygame.draw.rect(screen, (211, 53, 78), board2)  # 屏幕上在弹板位置区画弹板
+            pygame.draw.circle(screen, (243, 160, 49), ball.center, 10)  # ???????С??λ????????
+            pygame.draw.rect(screen, (70, 130, 253), board1)  # ??????????λ??????????
+            pygame.draw.rect(screen, (211, 53, 78), board2)  # ??????????λ??????????
         
             pygame.display.update()
         
@@ -152,16 +152,16 @@ def game(Palm):
                     r = False
 
             
-            if ball.colliderect(board1):  # 小球碰到弹板，方向速度变为负数
+            if ball.colliderect(board1):  # С?????????壬?????????????
                 speed += 0.5
                 x = speed
                 score +=1
-            if ball.colliderect(board2):  # 小球碰到弹板，方向速度变为负数
+            if ball.colliderect(board2):  # С?????????壬?????????????
                 speed +=0.5
                 x = -speed
                 score +=1
                 
-            if ball.bottom > shigh-24*doub-speed:  # 小球下方出界，游戏结束
+            if ball.bottom > shigh-24*doub-speed:  # С???·????磬???????
                 y = -speed
             if ball.top <= 24*doub+speed:
                 y = speed
@@ -170,7 +170,7 @@ def game(Palm):
             if ball.right>=swid-20*doub+speed:
                 r=False
 
-            ball.move_ip(x, y)  # 增量移动小球的位置控制区
+            ball.move_ip(x, y)  # ???????С???λ???????
 
             
             if pygame.key.get_pressed()[pygame.K_w]:
@@ -196,13 +196,13 @@ def game(Palm):
                         RightH=kkk[1]
 
 
-            clock.tick(50)  # 每秒30次
-            background = pygame.image.load(f'./image/{score}.png').convert()
+            clock.tick(50)  # ???30??
+            background = pygame.image.load(f'./Double_Pinball/image/{score}.png').convert()
             background = pygame.transform.smoothscale(background, gameDisplay.get_size())
             gameDisplay.blit(background, (0, 0))
-            pygame.draw.circle(screen, (243, 160, 49), ball.center, 10)  # 屏幕上在小球位置区画球
-            pygame.draw.rect(screen, (70, 130, 253), board1)  # 屏幕上在弹板位置区画弹板
-            pygame.draw.rect(screen, (211, 53, 78), board2)  # 屏幕上在弹板位置区画弹板
+            pygame.draw.circle(screen, (243, 160, 49), ball.center, 10)  # ???????С??λ????????
+            pygame.draw.rect(screen, (70, 130, 253), board1)  # ??????????λ??????????
+            pygame.draw.rect(screen, (211, 53, 78), board2)  # ??????????λ??????????
         
             pygame.display.update()
 
