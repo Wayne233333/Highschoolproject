@@ -14,7 +14,7 @@ def game(result):
 
     # 设置游戏标题
     pygame.display.set_caption('弹幕游戏')
-    Gicon = pygame.image.load("image/Gicon.png")
+    Gicon = pygame.image.load("Motion_Sensing_Game/image/Gicon.png")
     pygame.display.set_icon(Gicon)
     # 定义颜色
     BLACK = (0, 0, 0)
@@ -96,7 +96,7 @@ def game(result):
     # 游戏循环
     
     gameDisplay = pygame.display.set_mode((screen_width,screen_height))
-    background = pygame.image.load('./image/1.png').convert()
+    background = pygame.image.load('./Motion_Sensing_Game/image/1.png').convert()
     background = pygame.transform.smoothscale(background, gameDisplay.get_size())
     gameDisplay.blit(background, (0, 0))
     
@@ -162,7 +162,7 @@ def game(result):
             # 绘制游戏画面
             score = (pygame.time.get_ticks()-begin_time) // 1000
 #             screen.fill(BLACK)
-            background = pygame.image.load(f'./image/{score+1}.png').convert()
+            background = pygame.image.load(f'./Motion_Sensing_Game/image/{score+1}.png').convert()
             background = pygame.transform.smoothscale(background, gameDisplay.get_size())
             gameDisplay.blit(background, (0, 0))
             all_sprites.draw(screen)
